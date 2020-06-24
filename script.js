@@ -3,6 +3,8 @@ let guesses = [];
 
 let correctNumber = getRandomNumber();
 
+let flag = 0;
+
 window.onload = function() {
     document.getElementById("number-submit").addEventListener("click", playGame);
     document.getElementById("restart-game").addEventListener("click", initGame);
@@ -10,7 +12,7 @@ window.onload = function() {
 }
 
 function playGame(event) {
-    if (event.keyCode === 13) {
+    if (event.keyCode === 13 && flag === 0) {
         let numberGuess = document.getElementById("number-guess").value;
         displayResult(numberGuess);
         saveGuessHistory(numberGuess);
@@ -32,7 +34,11 @@ function initGame() {
     guesses = [];
     resetResultContent();
     correctNumber = getRandomNumber();
-    displayHistory();
+    document.getElementById("history").innerHTML = "";
+    flag = 0;
+    document.getElementById("number-submit").addEventListener("click", playGame);
+    let IHTML = '<input id="number-guess" class="form-control form-control-lg" type="number" placeholder="What\'s your guess?">'
+    document.getElementById("inputGuess").innerHTML = IHTML;
 }
 
 function resetResultContent() {
@@ -49,7 +55,8 @@ function saveGuessHistory(guess) {
 }
 
 function displayHistory() {
-    let list = "<ul class='list-group'>"
+    let list = "<h5 style='color: yellow;'>Guess History</h5>"
+    list += "<ul class='list-group'>"
     let index = guesses.length-1;
     while(index>=0){
         list+="<li class='list-group-item'>You guessed " + guesses[index] + "</li>"
@@ -77,8 +84,10 @@ function getDialog(dialogType, text) {
 function showYouWon() {
     let len = guesses.length + 1;
     const text = `Awesome job, you got it in ${len} tries!`
+    flag = 1;
     let dialog = getDialog('won', text);
     document.getElementById("result").innerHTML = dialog;
+    document.getElementById("number-submit").addEventListener("click",);
 }
 
 function showNumberAbove() {
