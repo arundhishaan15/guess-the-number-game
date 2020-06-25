@@ -1,16 +1,66 @@
-#number-guess,
-#result,
-#history {
-  max-width: 400px;
-  margin: 0 auto;
+body {
+    margin: auto;
+    background-image: url('C:/Users/user/Visual Code Studio Javascript/Usual/Guess the number (improvised)/images/image-asset.jpeg');
+    background-size: cover;
+}
+
+#number-guess, #result, #history {
+    max-width: 400px;
+    margin: 0 auto;
 }
 
 #history {
-  margin-top: 16px;
+    margin-top: 16px;
+}
+  
+.side-title {
+    margin: 60px;
+    color: skyblue;
+    font-size: 50px;
+    font-family: serif;
 }
 
-.banner {
-  color: #ffd23f;
-  font-size: 90px;
-  font-family: sans-serif;
+.row, .input-row, .buttons{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
+
+.input-row {
+    margin-top: 40px;
+}
+
+#number-submit, #restart-game {
+    margin: 10px;
+}
+
+#historyScrollbar {
+    overflow-y: scroll;
+    scrollbar-color: red green;
+    max-height: 300px;
+}
+
+#historyScrollbar::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+#historyScrollbar::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+#historyScrollbar::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: grey;
+}
+
+
+
+

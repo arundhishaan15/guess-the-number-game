@@ -1,91 +1,127 @@
 /**
  * Guess The Number Game
- * TODO: Get user value from input and save it to variable numberGuess
- * TODO: Generate a random number 1 to 100 and save it to variable correctNumber
- * TODO: Console whether the guess is too high, too low, or is correct inside playGame function
- * TODO: Create a function called displayResult to move the logic for if the guess is too high, too low, or correct
- * TODO: Complete the showYouWon, showNumberAbove, showNumberBelow
- * TODO: Use the showYouWon... functions within displayResult to display the correct dialog
- * TODO: Save the guess history in a variable called guess
- * TODO: Display the guess history using displayHistory() function
- * TODO: Use the initGame() function to restart the game
+ * DONE: Get user value from input and save it to variable numberGuess
+ * DONE: Generate a random number 1 to 100 and save it to variable correctNumber
+ * DONE: Console whether the guess is too high, too low, or is correct inside playGame function
+ * DONE: Create a function called displayResult to move the logic for if the guess is too high, too low, or correct
+ * DONE: Complete the showYouWon, showNumberAbove, showNumberBelow
+ * DONE: Use the showYouWon... functions within displayResult to display the correct dialog
+ * DONE: Save the guess history in a variable called guess
+ * DONE: Display the guess history using displayHistory() function
+ * DONE: Use the initGame() function to restart the game
  */
 
-// Variable to store the list of guesses
+// Variable to store the list of guesses 
 let guesses = [];
-// Variable for store the correct random number
-let correctNumber = getRandomNumber();
+document.addEventListener('keypress', doc_keyPress);
+// Variable for store the correct random number 
 
-window.onload = function () {
-  document.getElementById("number-submit").addEventListener("click", playGame);
-  document.getElementById("restart-game").addEventListener("click", initGame);
-};
+let correctNumber = getRandomNumber();
+console.log(correctNumber);
+
+window.onload = function() {
+    document.getElementById("number-submit").addEventListener("click", playGame);
+    document.getElementById("restart-game").addEventListener("click", initGame);
+    getRandomNumber();
+    document.getElementById('number-guess').focus();
+    document.getElementById('number-guess').select();
+
+}
 
 /**
  * Functionality for playing the whole game
  */
-function playGame() {
+
+function doc_keyPress(event) {
+  if(event.keyCode === 13) {
+    playGame();
+  }
+}
+
+
+function playGame(){
+  // *CODE GOES BELOW HERE *
   let numberGuess = document.getElementById("number-guess").value;
   displayResult(numberGuess);
   saveGuessHistory(numberGuess);
   displayHistory();
+
+}
+
+function removeNumber() {
+  let code = `<input id="number-guess" class="form-group form-control form-control-lg" type="number" placeholder="Type your guess here...">
+            <div class="buttons">
+                <button type="button" id="number-submit" class="btn btn-dark">Check Me</button>
+                <button type="button" id="restart-game" class="btn btn-light">Restart</button>
+            </div>`;
+            console.log('working');
+  document.getElementById('remove-input').innerHTML = code; 
+  document.getElementById('number-guess').focus();
+  document.getElementById('number-guess').select();
 }
 
 /**
  * Show the result for if the guess it too high, too low, or correct
- * HINT: Use if, else if, else statement
+ * HINT: Use if, else if, else statement 
  */
 // *CODE GOES BELOW HERE *
+
 function displayResult(numberGuess) {
-  if (numberGuess > correctNumber) {
+  if(numberGuess > correctNumber) {
+    // console.log("too high");
     showNumberAbove();
-  } else if (numberGuess < correctNumber) {
+
+  }else if(numberGuess < correctNumber){
+    // console.log("too low");
     showNumberBelow();
-  } else {
+
+  }else{
+    // console.log("you win..");
     showYouWon();
   }
 }
+
 
 /**
  * Initialize a new game by resetting all values and content on the page
  * HINT: reset the correctNumber, guesses, and HTML content
  */
-function initGame() {
+function initGame(){
   // *CODE GOES BELOW HERE *
-  // Reset the correctNumber
-  // Reset the result display
-  // Reset the guesses array
-  // Reset the guess history display
   correctNumber = getRandomNumber();
-  resetResultContent();
+  document.getElementById("result").innerHTML = "";
   guesses = [];
   displayHistory();
+  removeNumber();
+  
 }
 
 /**
  * Reset the HTML content for guess history
  */
-function resetResultContent() {
+function resetResultContent(){
   document.getElementById("result").innerHTML = "";
 }
 
 /**
  * Return a random number between 1 and 100
- * HINT: Use Math.random
+ * HINT: Use Math.random 
  */
-function getRandomNumber() {
-  let randomNumber = Math.floor(Math.random() * 100) + 1;
+function getRandomNumber(){
+  let randomNumber = Math.floor(Math.random() * 101);
   return randomNumber;
+  // *CODE GOES BELOW HERE *
 }
 
 /**
- * Save guess history
+ * Save guess history 
  * HINT: Search Google "append to array in javascript"
  * HINT: Use the guesses variable
  */
 function saveGuessHistory(guess) {
   // *CODE GOES BELOW HERE *
   guesses.push(guess);
+  // console.log(guesses);
 }
 
 /**
@@ -98,31 +134,31 @@ function saveGuessHistory(guess) {
  */
 function displayHistory() {
   let index = guesses.length - 1; // TODO
-  let list = "<ul class='list-group'>";
+  let list = "<ul id='historyScrollbar' class='list-group'>";
+  let count = 0;
   // *CODE GOES BELOW HERE *
-  while (index >= 0) {
-    list +=
-      "<li class='list-group-item'>" +
-      "You guessed " +
-      guesses[index] +
-      "</li>";
-    index -= 1;
+  while(index >= 0) {
+  list += "<li class='list-group-item'>" + "You guessed " + guesses[index] + "</li>";
+  index -= 1;
+  count++;
   }
-  list += "</ul>";
+  list += "</ul>"; 
   document.getElementById("history").innerHTML = list;
+
+
 }
 
 /**
- * Retrieve the dialog based on if the guess is wrong or correct
+ * Retrieve the dialog based on if the guess is wrong or correct 
  */
-function getDialog(dialogType, text) {
+function getDialog(dialogType, text){
   let dialog;
-  switch (dialogType) {
+  switch(dialogType){
     case "warning":
-      dialog = "<div class='alert alert-warning' role='alert'>";
+      dialog = "<div class='alert alert-warning' role='alert'>"
       break;
     case "won":
-      dialog = "<div class='alert alert-success' role='alert'>";
+      dialog = "<div class='alert alert-success' role='alert'>"
       break;
   }
   dialog += text;
@@ -130,38 +166,42 @@ function getDialog(dialogType, text) {
   return dialog;
 }
 
-function showYouWon() {
-  const text = "Awesome job, you got it!";
+function showYouWon(){
+  const text = `Awesome job, you got it in ${guesses.length + 1} tries!`;
   /**
    * Retrieve the dialog using the getDialog() function
    * and save it to variable called dialog
-   * HINT: Use the 'won' and text parameters
+   * HINT: Use the 'won' and text parameters 
    */
   // *CODE GOES BELOW HERE *
-  let dialog = getDialog("won", text);
+  let dialog = getDialog('won', text);
+  console.log(dialog);
+
   document.getElementById("result").innerHTML = dialog;
 }
 
-function showNumberAbove() {
-  const text = "Your guess is too high!";
+function showNumberAbove(){
+  const text = "Your guess is too high!"
   /**
    * Retrieve the dialog using the getDialog() function
    * and save it to variable called dialog
-   * HINT: Use the 'warning' and text parameters
+   * HINT: Use the 'warning' and text parameters 
    */
   // *CODE GOES BELOW HERE *
-  let dialog = getDialog("warning", text);
+  let dialog = getDialog('warning', text);
+
   document.getElementById("result").innerHTML = dialog;
 }
 
-function showNumberBelow() {
-  const text = "Your guess is too low!";
+function showNumberBelow(){
+  const text = "Your guess is too low!"
   /**
    * Retrieve the dialog using the getDialog() function
    * and save it to variable called dialog
-   * HINT: Use the 'warning' and text parameters
+   * HINT: Use the 'warning' and text parameters 
    */
   // *CODE GOES BELOW HERE *
-  let dialog = getDialog("warning", text);
+  let dialog = getDialog('warning', text);
+
   document.getElementById("result").innerHTML = dialog;
 }
