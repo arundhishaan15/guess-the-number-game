@@ -9,6 +9,8 @@ window.onload = function() {
     document.getElementById("number-submit").addEventListener("click", playGame);
     document.getElementById("restart-game").addEventListener("click", initGame);
     document.addEventListener('keyup', playGame);
+    document.getElementById('number-guess').focus();
+    document.getElementById('number-guess').select();
 }
 
 function playGame(event) {
@@ -17,6 +19,10 @@ function playGame(event) {
         displayResult(numberGuess);
         saveGuessHistory(numberGuess);
         displayHistory();
+        let IHTML = '<input id="number-guess" style="cursor: auto;" class="form-control form-control-lg" type="number" placeholder="What\'s your guess?">'
+        document.getElementById("inputGuess").innerHTML = IHTML;
+        document.getElementById('number-guess').focus();
+        document.getElementById('number-guess').select();
     }
 }
 
@@ -39,6 +45,8 @@ function initGame() {
     document.getElementById("number-submit").addEventListener("click", playGame);
     let IHTML = '<input id="number-guess" class="form-control form-control-lg" type="number" placeholder="What\'s your guess?">'
     document.getElementById("inputGuess").innerHTML = IHTML;
+    document.getElementById('number-guess').focus();
+    document.getElementById('number-guess').select();
 }
 
 function resetResultContent() {
@@ -56,7 +64,7 @@ function saveGuessHistory(guess) {
 
 function displayHistory() {
     let list = "<h5 style='color: yellow;'>Guess History</h5>"
-    list += "<ul class='list-group'>"
+    list += "<ul id='historyScrollbar' class='list-group'>"
     let index = guesses.length-1;
     while(index>=0){
         list+="<li class='list-group-item'>You guessed " + guesses[index] + "</li>"
