@@ -1,16 +1,56 @@
-#number-guess,
-#result,
-#history {
-  max-width: 400px;
-  margin: 0 auto;
+#number-guess, #result, #history {
+    max-width: 400px;
+    margin: 0 auto;
 }
 
 #history {
-  margin-top: 16px;
+    margin-top: 16px;
+}
+
+#forBorder {
+    border: 10px solid transparent;
+    padding: 15px;
+    border-image: url(Images/border.png) 30 round;
 }
 
 .banner {
-  color: #ffd23f;
-  font-size: 90px;
-  font-family: sans-serif;
+    color: yellow;
+    font-size: 45px;
+    font-family: sans-serif;
+    text-decoration: solid;
+    font-weight: 600;
+}
+
+main {
+    padding: 100px;
+}
+
+body {
+    background-image: url("Images/BG1.png");
+    background-size: fill;
+
+}
+
+.gameBG {
+    background-color: black;
+    width: 600px;
+    align-items: center;
+    height: fit-content;
+    padding: 20px;
+    padding-top: 10px;
+    text-align: center;
+    border-radius: 25px;
+    margin: 0 auto;
+    margin-top: -60px;
+}
+
+.header {
+    color: yellow;
+    font-style: italic;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 75px;
+}
+
+#inputGuess {
+    padding-top: 10px;
 }
