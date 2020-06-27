@@ -63,14 +63,14 @@ function saveGuessHistory(guess) {
 }
 
 function displayHistory() {
-    let list = "<h5 style='color: yellow;'>Guess History</h5>"
+    let list = "<div id='forBorder'><h5 style='color: yellow;'>Guess History</h5>"
     list += "<ul id='historyScrollbar' class='list-group'>"
     let index = guesses.length-1;
     while(index>=0){
         list+="<li class='list-group-item'>You guessed " + guesses[index] + "</li>"
         index--;
     }
-    list += "</ul>";
+    list += "</ul></div>";
     document.getElementById("history").innerHTML = list;
 }
 
