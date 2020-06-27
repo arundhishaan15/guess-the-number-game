@@ -1,33 +1,32 @@
 body {
     margin: auto;
-    background-image: url('C:/Users/user/Visual Code Studio Javascript/Usual/Guess the number (improvised)/images/image-asset.jpeg');
+    background-image: url('images/image-asset.jpeg');
     background-size: cover;
 }
 
-#number-guess, #result, #history {
-    max-width: 400px;
+#number-guess, #history {
+    width: 400px;
     margin: 0 auto;
 }
 
-#history {
-    margin-top: 16px;
-}
   
 .side-title {
     margin: 60px;
-    color: skyblue;
+    color: black;
     font-size: 50px;
-    font-family: serif;
+    padding: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.row, .input-row, .buttons{
+.input-row, .buttons{
     display: flex;
+    padding: 10px;
+    justify-content: space-around;
     align-items: center;
-    justify-content: space-evenly;
     flex-wrap: wrap;
 }
 
-.input-row {
+.input-row, #history {
     margin-top: 40px;
 }
 
@@ -35,21 +34,42 @@ body {
     margin: 10px;
 }
 
-#historyScrollbar {
+.row {
+    color: black;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.card {
+    background-color: cadetblue;
+}
+
+#result {
+    width: 770px;
+    padding: 10px;
+    padding-left: 45px;
+    align-items: flex-start;
+    
+}
+
+/* this is for the scrollbar */
+/* #historyScrollbar {
+    padding-top: 10px;
     overflow-y: scroll;
     scrollbar-color: red green;
     max-height: 300px;
+    border-radius: 5px;
 }
 
-#historyScrollbar::-webkit-scrollbar-track
-{
+#historyScrollbar::-webkit-scrollbar-track {
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 	border-radius: 10px;
 	background-color: #F5F5F5;
 }
 
 #historyScrollbar::-webkit-scrollbar
-{
+{   padding-top: 10px;
+    
 	width: 12px;
 	background-color: #F5F5F5;
 }
@@ -59,8 +79,7 @@ body {
 	border-radius: 10px;
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
 	background-color: grey;
-}
-
+} */
 
 
 

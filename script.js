@@ -51,8 +51,8 @@ function playGame(){
 function removeNumber() {
   let code = `<input id="number-guess" class="form-group form-control form-control-lg" type="number" placeholder="Type your guess here...">
             <div class="buttons">
-                <button type="button" id="number-submit" class="btn btn-dark">Check Me</button>
-                <button type="button" id="restart-game" class="btn btn-light">Restart</button>
+                <button type="button" id="number-submit" class="btn btn-lg btn-dark">Check Me</button>
+                <button type="button" id="restart-game" class="btn btn-lg btn-light">Restart</button>
             </div>`;
             console.log('working');
   document.getElementById('remove-input').innerHTML = code; 
