@@ -8,21 +8,29 @@ let flag = 0;
 window.onload = function() {
     document.getElementById("number-submit").addEventListener("click", playGame);
     document.getElementById("restart-game").addEventListener("click", initGame);
-    document.addEventListener('keyup', playGame);
+    document.addEventListener('keyup', pressEnter);
     document.getElementById('number-guess').focus();
     document.getElementById('number-guess').select();
 }
 
-function playGame(event) {
-    if (event.keyCode === 13 && flag === 0) {
+function pressEnter(event) {
+    if (event.keyCode === 13) {
+        playGame();
+    }
+}
+
+function playGame() {
+    if (flag === 0) {
         let numberGuess = document.getElementById("number-guess").value;
-        displayResult(numberGuess);
-        saveGuessHistory(numberGuess);
-        displayHistory();
-        let IHTML = '<input id="number-guess" style="cursor: auto;" class="form-control form-control-lg" type="number" placeholder="What\'s your guess?">'
-        document.getElementById("inputGuess").innerHTML = IHTML;
-        document.getElementById('number-guess').focus();
-        document.getElementById('number-guess').select();
+        if (!(numberGuess == "")){
+            displayResult(numberGuess);
+            saveGuessHistory(numberGuess);
+            displayHistory();
+            let IHTML = '<input id="number-guess" class="form-control form-control-lg" type="number" placeholder="What\'s your guess?">'
+            document.getElementById("inputGuess").innerHTML = IHTML;
+            document.getElementById('number-guess').focus();
+            document.getElementById('number-guess').select();
+        }
     }
 }
 
@@ -64,7 +72,7 @@ function saveGuessHistory(guess) {
 
 function displayHistory() {
     let list = "<div id='forBorder'><h5 style='color: yellow;'>Guess History</h5>"
-    list += "<ul id='historyScrollbar' class='list-group'>"
+    list += "<ul class='list-group'>"
     let index = guesses.length-1;
     while(index>=0){
         list+="<li class='list-group-item'>You guessed " + guesses[index] + "</li>"
