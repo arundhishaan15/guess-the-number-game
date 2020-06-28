@@ -30,10 +30,6 @@ body {
     background-size: 100vw 1000px;
 }
 
-input:invalid {
-    border-color: red;
-}
-
 .gameBG {
     background-color: brown;
     width: 600px;
