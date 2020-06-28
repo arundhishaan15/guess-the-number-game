@@ -1,20 +1,23 @@
-/**
- * Guess The Number Game
- * DONE: Get user value from input and save it to variable numberGuess
- * DONE: Generate a random number 1 to 100 and save it to variable correctNumber
- * DONE: Console whether the guess is too high, too low, or is correct inside playGame function
- * DONE: Create a function called displayResult to move the logic for if the guess is too high, too low, or correct
- * DONE: Complete the showYouWon, showNumberAbove, showNumberBelow
- * DONE: Use the showYouWon... functions within displayResult to display the correct dialog
- * DONE: Save the guess history in a variable called guess
- * DONE: Display the guess history using displayHistory() function
- * DONE: Use the initGame() function to restart the game
- */
+/*
+Add the following list of functionality to the app:
+
+ You have to take the history out of the input div. 
+ When the history increases the input div also increases. 
+ Input div has to be fixed size.
+ 
+ Add a heading called History while showing history.
+
+ Add a stylish image border around history.
+
+ Get the result to the right on top of history.
+*/
 
 // Variable to store the list of guesses 
 let guesses = [];
+var flag = 0;
 document.addEventListener('keypress', doc_keyPress);
 // Variable for store the correct random number 
+
 
 let correctNumber = getRandomNumber();
 console.log(correctNumber);
@@ -22,10 +25,9 @@ console.log(correctNumber);
 window.onload = function() {
     document.getElementById("number-submit").addEventListener("click", playGame);
     document.getElementById("restart-game").addEventListener("click", initGame);
-    getRandomNumber();
     document.getElementById('number-guess').focus();
     document.getElementById('number-guess').select();
-
+    getRandomNumber();
 }
 
 /**
@@ -34,18 +36,28 @@ window.onload = function() {
 
 function doc_keyPress(event) {
   if(event.keyCode === 13) {
+    let emptcode = `<input id="number-guess" class="form-group form-control form-control-lg" type="number" placeholder="Type your guess here...">`;
+    document.getElementById('number-guess').innerHTML = emptcode;
     playGame();
   }
+
 }
 
+if(flag == 0) {
 
-function playGame(){
-  // *CODE GOES BELOW HERE *
-  let numberGuess = document.getElementById("number-guess").value;
-  displayResult(numberGuess);
-  saveGuessHistory(numberGuess);
-  displayHistory();
-
+  function playGame(){
+    // *CODE GOES BELOW HERE *
+    let numberGuess = document.getElementById("number-guess").value;
+    if(numberGuess != '') {
+      displayResult(numberGuess);
+      saveGuessHistory(numberGuess);
+      displayHistory();
+      let emptcode = `<input id="number-guess" class="form-group form-control form-control-lg" type="number" placeholder="Type your guess here...">`;
+      document.getElementById('input-guess').innerHTML = emptcode;
+      document.getElementById('number-guess').focus();
+      document.getElementById('number-guess').select();    
+    } 
+  }
 }
 
 function removeNumber() {
@@ -54,7 +66,6 @@ function removeNumber() {
                 <button type="button" id="number-submit" class="btn btn-lg btn-dark">Check Me</button>
                 <button type="button" id="restart-game" class="btn btn-lg btn-light">Restart</button>
             </div>`;
-            console.log('working');
   document.getElementById('remove-input').innerHTML = code; 
   document.getElementById('number-guess').focus();
   document.getElementById('number-guess').select();
@@ -93,10 +104,11 @@ function initGame(){
   guesses = [];
   displayHistory();
   removeNumber();
+  flag = 0;
   
 }
 
-/**
+/*
  * Reset the HTML content for guess history
  */
 function resetResultContent(){
@@ -133,8 +145,10 @@ function saveGuessHistory(guess) {
  * HINT: use while loop and string concatentation to create a list of guesses
  */
 function displayHistory() {
-  let index = guesses.length - 1; // TODO
-  let list = "<ul id='historyScrollbar' class='list-group'>";
+  let list = `<div id='borderimg'>
+                <h5 style="color: red;">Guess history</h5>
+              <ul class='list-group'>`;
+  let index = guesses.length - 1;
   let count = 0;
   // *CODE GOES BELOW HERE *
   while(index >= 0) {
@@ -142,7 +156,7 @@ function displayHistory() {
   index -= 1;
   count++;
   }
-  list += "</ul>"; 
+  list += "</ul></div>"; 
   document.getElementById("history").innerHTML = list;
 
 
@@ -176,8 +190,10 @@ function showYouWon(){
   // *CODE GOES BELOW HERE *
   let dialog = getDialog('won', text);
   console.log(dialog);
-
   document.getElementById("result").innerHTML = dialog;
+
+  let flag = 1;
+  
 }
 
 function showNumberAbove(){
@@ -189,7 +205,6 @@ function showNumberAbove(){
    */
   // *CODE GOES BELOW HERE *
   let dialog = getDialog('warning', text);
-
   document.getElementById("result").innerHTML = dialog;
 }
 

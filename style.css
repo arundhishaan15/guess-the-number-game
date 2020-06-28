@@ -1,85 +1,35 @@
 body {
     margin: auto;
     background-image: url('images/image-asset.jpeg');
-    background-size: cover;
+    background-size: 100vw 700px;
 }
 
-#number-guess, #history {
+#number-guess, #history, #result {
     width: 400px;
     margin: 0 auto;
 }
 
-  
-.side-title {
-    margin: 60px;
-    color: black;
-    font-size: 50px;
-    padding: 10px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-.input-row, .buttons{
+.row, .buttons{
     display: flex;
     padding: 10px;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-}
+    justify-content: space-evenly;
+    
+}   
 
-.input-row, #history {
-    margin-top: 40px;
-}
-
-#number-submit, #restart-game {
+.input-row {
     margin: 10px;
 }
 
-.row {
-    color: black;
-    border-radius: 5px;
-    text-align: center;
-}
+#borderimg {
+    border: 10px solid transparent;
+    padding: 15px;
+    border-image: url('images/border.png') 30 stretch;
+  }
 
 .card {
-    background-color: cadetblue;
+    margin-top: 130px;
 }
 
-#result {
-    width: 770px;
-    padding: 10px;
-    padding-left: 45px;
-    align-items: flex-start;
-    
-}
-
-/* this is for the scrollbar */
-/* #historyScrollbar {
-    padding-top: 10px;
-    overflow-y: scroll;
-    scrollbar-color: red green;
-    max-height: 300px;
-    border-radius: 5px;
-}
-
-#historyScrollbar::-webkit-scrollbar-track {
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	border-radius: 10px;
-	background-color: #F5F5F5;
-}
-
-#historyScrollbar::-webkit-scrollbar
-{   padding-top: 10px;
-    
-	width: 12px;
-	background-color: #F5F5F5;
-}
-
-#historyScrollbar::-webkit-scrollbar-thumb
-{
-	border-radius: 10px;
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-	background-color: grey;
-} */
 
 
 
