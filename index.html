@@ -1,32 +1,42 @@
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-    <title>Guess the Number</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Guess The Number</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="script.js"></script>
 </head>
-    <body class="text-center">
-        <nav class="navbar navbar-dark bg-dark">
-            <!-- Navigation bar content -->
-            <a class = "navbar-brand" href="#">Guess The Number</a>
-        </nav>
-        <main>    
-            <div class="gameBG">
-                <h2 class="header">1~2~3~~100</h2>
-                <div id="inputGuess" class="form-group">
-                    <input id="number-guess" class="form-control form-control-lg" type="number" placeholder="What's your guess?">
+<body class="text-center">
+
+    <nav class="navbar navbar-dark bg-dark">
+        <!-- Navbar content -->
+        <a class="navbar-brand" href="#"><h2>Guess The Number</h2></a>
+    </nav>
+    <div class="row" id="row-id">
+        <div class="input-row" id="remove-input">
+            <div class="card text-danger bg-dark mt-8" style="max-width: 28rem; border-radius: 15px;">
+                <div class="card-body">
+                  <h1 class="card-title">1--2----100</h1>
+                  <div id="input-guess">
+                    <input id="number-guess" class="form-group form-control form-control-lg" type="number" placeholder="Type your guess here...">
                 </div>
-                <div id="result">
-                    <!-- This is where the result will be -->
+                <div class="buttons">
+                    <button type="button" id="number-submit" class="btn btn-lg btn-dark">Check Me</button>
+                    <button type="button" id="restart-game" class="btn btn-lg btn-light">Restart</button>
                 </div>
-        
-                <button type="button" id="number-submit" class="btn btn-lg btn-secondary">Check Me</button>
-                <button type="button" id="restart-game" class="btn btn-lg btn-light">Restart</button>    
-                
-                <div id="history">
-                    <!-- This is where the history will be -->
                 </div>
+              </div>
+            
+        </div>
+    
+    <div class="his-res-container" id="his-res-id">
+        <div id="result">
+                <!-- This is where the result will be-->
             </div>
-        </main>
-    </body>
+        <div id="history">
+            <!-- This is where the guess history will be-->
+        </div>
+    </div>
+
+</body>
 </html>
