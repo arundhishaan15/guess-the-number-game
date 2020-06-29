@@ -1,20 +1,6 @@
-/*
-Add the following list of functionality to the app:
-
- You have to take the history out of the input div. 
- When the history increases the input div also increases. 
- Input div has to be fixed size.
- 
- Add a heading called History while showing history.
-
- Add a stylish image border around history.
-
- Get the result to the right on top of history.
-*/
-
 // Variable to store the list of guesses 
 let guesses = [];
-var flag = 0;
+let flag = 0;
 document.addEventListener('keypress', doc_keyPress);
 // Variable for store the correct random number 
 
@@ -43,9 +29,9 @@ function doc_keyPress(event) {
 
 }
 
-if(flag == 0) {
 
-  function playGame(){
+function playGame(){
+  if(flag == 0) {
     // *CODE GOES BELOW HERE *
     let numberGuess = document.getElementById("number-guess").value;
     if(numberGuess != '') {
@@ -58,15 +44,15 @@ if(flag == 0) {
       document.getElementById('number-guess').select();    
     } 
   }
+  
 }
 
+
 function removeNumber() {
-  let code = `<input id="number-guess" class="form-group form-control form-control-lg" type="number" placeholder="Type your guess here...">
-            <div class="buttons">
-                <button type="button" id="number-submit" class="btn btn-lg btn-dark">Check Me</button>
-                <button type="button" id="restart-game" class="btn btn-lg btn-light">Restart</button>
-            </div>`;
-  document.getElementById('remove-input').innerHTML = code; 
+  let code = ` <input id="number-guess" class="form-group form-control form-control-lg" type="number" placeholder="Type your guess here...">`;
+                
+
+  document.getElementById('input-guess').innerHTML = code; 
   document.getElementById('number-guess').focus();
   document.getElementById('number-guess').select();
 }
@@ -98,14 +84,15 @@ function displayResult(numberGuess) {
  * HINT: reset the correctNumber, guesses, and HTML content
  */
 function initGame(){
+  flag = 0;
   // *CODE GOES BELOW HERE *
   correctNumber = getRandomNumber();
   document.getElementById("result").innerHTML = "";
   guesses = [];
   displayHistory();
+  document.getElementById("history").innerHTML = "";
   removeNumber();
-  flag = 0;
-  
+
 }
 
 /*
@@ -181,6 +168,7 @@ function getDialog(dialogType, text){
 }
 
 function showYouWon(){
+  flag = 1;
   const text = `Awesome job, you got it in ${guesses.length + 1} tries!`;
   /**
    * Retrieve the dialog using the getDialog() function
@@ -191,8 +179,6 @@ function showYouWon(){
   let dialog = getDialog('won', text);
   console.log(dialog);
   document.getElementById("result").innerHTML = dialog;
-
-  let flag = 1;
   
 }
 
