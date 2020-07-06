@@ -26,12 +26,12 @@ main {
 }
 
 body {
-    background-image: url(https://thumbs.dreamstime.com/b/blackboard-inscribed-scientific-formulas-calculations-physics-mathematics-can-illustrate-topics-to-quantum-mechanics-112753211.jpg);
+    background-image: url(Images/numbersborder.jpg);
     background-size: 100vw 1000px;
 }
 
 .gameBG {
-    background-color: teal;
+    background-color: black;
     width: 600px;
     align-items: center;
     height: fit-content;
