@@ -1,35 +1,56 @@
-body {
-    margin: auto;
-    background-image: url('images/image-asset.jpeg');
-    background-size: 100vw 700px;
-}
-
-#number-guess, #history, #result {
-    width: 400px;
+#number-guess, #result, #history {
+    max-width: 400px;
     margin: 0 auto;
 }
 
-.row, .buttons{
-    display: flex;
-    padding: 10px;
-    justify-content: space-evenly;
-    
-}   
-
-.input-row {
-    margin: 10px;
+#history {
+    margin-top: 16px;
 }
 
-#borderimg {
+#forBorder {
     border: 10px solid transparent;
     padding: 15px;
-    border-image: url('images/border.png') 30 stretch;
-  }
-
-.card {
-    margin-top: 130px;
+    border-image: url(Images/border.png) 30 round;
 }
 
+.banner {
+    color: yellow;
+    font-size: 45px;
+    font-family: sans-serif;
+    text-decoration: solid;
+    font-weight: 600;
+}
 
+main {
+    padding: 100px;
+}
 
+body {
+    background-image: url(Images/numbersborder.jpg);
+    background-size: 100vw 1000px;
+}
 
+.gameBG {
+    background-color: seagreen;
+    width: 600px;
+    align-items: center;
+    height: fit-content;
+    padding: 20px;
+    padding-top: 10px;
+    text-align: center;
+    border-radius: 25px;
+    margin: 0 auto;
+    margin-top: -60px;
+    z-index: 20;
+    box-shadow: 7px 7px #888888;
+}
+
+.header {
+    color: yellow;
+    font-style: italic;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#inputGuess {
+    padding-top: 10px;
+}
