@@ -31,7 +31,7 @@ body {
 }
 
 .gameBG {
-    background-color: black;
+    background-color: seagreen;
     width: 600px;
     align-items: center;
     height: fit-content;
@@ -42,13 +42,13 @@ body {
     margin: 0 auto;
     margin-top: -60px;
     z-index: 20;
+    box-shadow: 7px 7px #888888;
 }
 
 .header {
     color: yellow;
     font-style: italic;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 75px;
 }
 
 #inputGuess {
